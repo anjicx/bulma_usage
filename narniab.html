@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narnia</title> <!--naziv taba-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">  
+   <style>
+
+    body{
+        font-family: "Crimson Text", Georgia;
+    }
+
+.hero.is-primary{
+    background-color: #072038;
+}
+
+.navbar-item.is-fullwidth {
+    text-align: center;
+}
+.hero.is-primary .title {
+    color:#072038;
+    text-shadow: rgb(205, 205, 205) 1px 0 10px;
+    }
+p,h1,.navbar-item{
+    color: #072038;
+
+}
+/*ovde dodatno*/
+.tabs li.is-active a {
+    border-bottom-color: #072038;
+    color:  #072038;
+}
+
+</style>
+
+</head>
+<body>
+    <nav class="navbar has-background-grey-lighter" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger has-background-grey-lighter" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    
+        <div class="navbar-menu has-background-grey-lighter">
+            <div class="navbar-end is-size-5" id="navbar-links">
+                <a href="index.html" class="navbar-item">HOME</a>
+                <a href="narniab.html" class="navbar-item">FILMS</a>
+                <a href="forma.html" class="navbar-item">WRITE US</a>
+                <a href="characters.html" class="navbar-item">CHARACTERS</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    
+<section class="hero is-primary" 
+    style="background-image: url('slike/5.jpg'); 
+    background-size: cover; background-position: center;">
+    <!--pozadinska slika razvučeno,pozicija centrira-->
+        <div class="hero-body ">
+            <div class="container">
+                <!--sadrzaj sekcije-->
+                <h1 class=" title py-2 is-size-1 has-text-centered">FILMS</h1>
+                <!--naslov da ima padding po y osi 2 i veličine 1, centriran-->
+            </div>
+        </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-5 has-text-centered"><!--centriran veličine 5/12 kontejner -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="slajder"><!--slajder sa slikama-->
+                            <div class="slajd fade">
+                                <img src="slike/bd97ad00db88df36673356aae3b7ed75.jpg "  >
+                            </div>
+                            <div class="slajd fade">
+                                <img src="slike/aaeb0ae993357d7ffba9aa5cbcf8a04b.jpg" >
+                            </div>
+                            <div class="slajd fade">
+                                <img src="slike/o.jpg">
+                            </div>
+                            <div class="slajd fade">
+                                <img src="slike/u.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <div class="column is-5  is-7-desktop is-offset-4">
+             <!--da centriramo pomeri is-offset-vrednost;ovde pomeri udesno (dodaj offset)za 4kolone-->
+            <div class="content">
+                <section class="section">
+                    <div class="container">
+            
+                        <!-- Bulma Tabs -->
+                        <div class="tabs is-centered is-size-4-desktop">
+                            <ul>
+                                <li  class="is-active" id="tab1"><a onclick="changeTab(1)">The Lion, the Witch and the Wardrobe(2005)</a></li>
+                                <li id="tab2"><a onclick="changeTab(2)">Prince Caspian(2008)</a></li>
+                                <li id="tab3"><a onclick="changeTab(3)">The Voyage of the Dawn Treader</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Tab Content -->
+                        <div id="content1" class="tab-content is-size-4-desktop">
+                            <p> Based on the first book in the series, this film follows 
+                                the adventures of the Pevensie siblings as they discover the magical land of Narnia 
+                                and join forces with Aslan to defeat the White Witch.</p>
+                        </div>
+                        <div id="content2" class="tab-content is-size-4-desktop" style="display: none;">
+                            <p>The second film adapts the fourth book in the series,
+                                 where the Pevensie siblings return to Narnia to aid Prince Caspian 
+                                 in his quest to reclaim the throne from his evil uncle.</p>
+                        </div>
+                        <div id="content3" class="tab-content is-size-4-desktop" style="display: none;">
+                            <p>The Voyage of the Dawn Treader (2010): Based on the third book, this film follows 
+                                the adventures of Edmund and Lucy Pevensie along with their cousin Eustace as
+                                they join King Caspian on a seafaring journey.</p>
+                        </div>
+                    </div>
+                </section>  
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+    <footer class="footer has-background-grey-lighter" > 
+        <div class="content has-text-centered">
+    <p>
+        © NARNIA WORLD DIGITAL 2023 </p>
+        </div>
+    
+        </footer>
+      
+    
+    
+
+           
+        <script src="js/burgermeni.js"></script> <!--samo script js fajl ukljuci-->
+        <script src="js/slider.js"></script> <!--slajder.js ukljuci-->
+        <script src="js/tabovi.js"></script>
+
+  
+</body>
+</html>

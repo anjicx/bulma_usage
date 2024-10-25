@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narnia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Crimson Text", Georgia;
+        }
+ 
+        .hero.is-primary {
+            background-color: #072038;
+        }
+
+        .navbar-item {
+            color: #072038;
+        }
+        .navbar-item.is-fullwidth {
+    text-align: center;
+}
+        .hero.is-primary .title {
+            color: #072038;
+            text-shadow: rgb(205, 205, 205) 1px 0 10px;
+        }
+
+        #footer-text,p {
+            color: #072038;
+        }
+
+/*novo*/
+        .button {
+            background-color: #072038;
+            color: #fff;
+        }
+       #forma .field .label{
+          color:#072038 ;
+          font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar has-background-grey-lighter" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger has-background-grey-lighter" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu has-background-grey-lighter">
+        <div class="navbar-end is-size-5" id="navbar-links">
+            <a href="index.html" class="navbar-item">HOME</a>
+            <a href="narniab.html" class="navbar-item">FILMS</a>
+            <a href="forma.html" class="navbar-item">WRITE US</a>
+            <a href="characters.html" class="navbar-item">CHARACTERS</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero is-primary"
+         style="background-image: url('slike/5.jpg'); ; background-size: cover; background-position: center;">
+    <div class="hero-body ">
+        <div class="container">
+            <h1 class=" title py-2 has-text-centered is-size-1">WRITE ABOUT YOUR FAVOURITE BOOK</h1>
+        </div>
+    </div>
+</section>
+
+<form id="forma" class="section is-uppercase">
+    <div class="columns">
+        <div class="column is-half "><!--leva polovina-->
+            <div class="field">
+                <label class="label" for="delo">Your favourite book:</label>
+                <div class="control">
+                    <div class="select"><!--selektovanje dela o kojem se pise-->
+                        <select name="delo" id="delo">
+                            <option value="1.">The Lion, the Witch and the Wardrobe</option>
+                            <option value="2.">Prince Caspian</option>
+                            <option value="3.">The Voyage of the Dawn Treader</option>
+                            <option value="4.">The Silver Chair</option>
+                            <option value="5.">The Horse and His Boy</option>
+                            <option value="6.">The Magician's Nephew</option>
+                            <option value="7.">The Last Battle</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field "><!--imejl polje-->
+                <label class="label" for="email">Email:</label>
+                <div class="control">
+                    <input type="text" autocomplete="email" class="input" id="email"
+                           onmouseout="validacijaEmail(document.getElementById('email'))">
+                </div>
+            </div>
+            <div class="field"><!--polje za ime-->
+                <label class="label" for="ime">Name:</label>
+                <div class="control">
+                    <input type="text" class="input" id="ime" autocomplete="name"
+                           onmouseout="validacijaSlova(document.getElementById('ime'))">
+                </div>
+            </div>
+            <div class="field">.<!--polje za prezime-->
+                <label class="label" for="prezime">Surname:</label>
+                <div class="control">
+                    <input type="text" class="input" id="prezime" autocomplete="family-name"
+                           onmouseout="validacijaSlova(document.getElementById('prezime'))">
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-half ">
+            <div class="field">
+                <label class="label" for="poruka">Message:</label>
+                <div class="control">
+                    <textarea name="poruka" id="poruka" class="textarea" cols="80" rows="23"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered ">
+        <div class="control">
+            <button type="submit" form="forma" id="btn" class="button is-large has-text-weight-bold-light is-rounded is-uppercase"
+                    onclick="provera(document.getElementById('delo'), document.getElementById('ime'), document.getElementById('prezime'), document.getElementById('email'), document.getElementById('poruka'))">Send
+            </button>
+        </div>
+    </div>
+</form>
+
+<footer class="footer has-background-grey-lighter" > 
+  <div class="content has-text-centered">
+<p>
+  © NARNIA WORLD DIGITAL 2023 </p>
+  </div>
+
+  </footer>
+
+<script src="js/burgermeni.js"></script> <!--samo script js fajl ukljuci-->
+<script src="js/validacija.js"></script> <!--samo script js fajl ukljuci-->
+
+
+</body>
+</html>

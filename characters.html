@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narnia</title>
+    <!--naziv taba-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Crimson Text", Georgia;
+        }
+
+        .hero.is-primary {
+            background-color: #072038;
+        }
+
+        .navbar-item.is-fullwidth {/*centriran kada se spusti meni*/
+            text-align: center;/*boja*/
+        }
+          p,
+        h1,
+        .navbar-item {
+            color: #072038;
+        }
+
+        .hero.is-primary .title {
+            color: #072038;
+            text-shadow: rgb(205, 205, 205) 1px 0 10px;
+        }
+
+
+        /* Kartice dodatne osobine */
+        .character-card {
+            cursor: pointer;/*kada pređeš kursorom preko kartice*/
+            transition: transform 0.2s;/*prelaz 0.2s do povećanja kartice*/
+        }
+        .character-card:hover {
+            transform: scale(1.1);/*element se poveća za 10%*/
+        }
+        /*modal dodatne osobine*/
+        /*modal=kada se otvori kartica bela pozadina skroz da se uklopi u kontejner*/
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        /*klik kartica sadrzaj*/
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        /*osobine paragraf levo i naslov centriran*/
+        .modal p{
+            text-align: left;
+        }
+        .modal .title{
+            text-align: center;
+        }
+        /*klik slika kartica */
+        .modal img {
+            max-width: 100%;
+            height: auto;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!--NAVBAR -navigacioni bar
+.has-background-grey-lighter dodaje svetlo sivu pozadinu navigacionom baru
+Atributi role="navigation" i "main navigation" pomažu alatima za čitanje ekrana -->
+    <nav class="navbar has-background-grey-lighter" role="navigation" aria-label="main navigation">
+        <!--za kreiranje burger menija-->
+       <div class="navbar-brand">
+         <!--NAVBAR-BURGER (TRI LINIJE),span(kontejner za tri linije)
+        role="button"(dugme),aria-label="menu"(radi o meniju),aria-expanded="false"(početno stanje burger meni ikone zatvoreno)-->
+            <a role="button" class="navbar-burger has-background-grey-lighter" aria-label="menu" aria-expanded="false">
+               
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    <!--za kreiranje navbar menija-->
+        <div class="navbar-menu has-background-grey-lighter">
+            <div class="navbar-end is-size-5" id="navbar-links">
+                <a href="index.html" class="navbar-item">HOME</a>
+                <a href="narniab.html" class="navbar-item">FILMS</a>
+                <a href="forma.html" class="navbar-item">WRITE US</a>
+                <a href="characters.html" class="navbar-item">CHARACTERS</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero is-primary"
+    style="background-image: url('slike/5.jpg'); background-size: cover; background-position: center;">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title py-2 is-size-1 has-text-centered">MAIN CHARACTERS</h1>
+        </div>
+    </div>
+</section>
+
+<!-- Interaktivna galerija -->
+<section class="section">
+  
+        <div class="columns is-multiline is-justify-content-center">
+            <!--is-multiline
+            elementi se smeste u više redova ako nema dovoljno prostora,
+            rilagođavanje izgleda na različitim širinama ekrana.
+            is-justify-content-center 
+            Sadržaj kolone centriran u odnosu na roditeljski kontejner.  
+        -->
+
+            <!-- Prvi karakter -->
+            <div class="column is-4"><!-- unutar columns velicina zauzima 1/3 jer 3kartice u 1koloni-->
+                <div class="card character-card" data-target="character-modal-1"><!--stilizovana kartica data-target 
+                    povezan sa modalom ćiji je id character-modal-1 i java scriptom-->
+                    <div class="card-image"><!--unutar slika lika-->
+                        <figure class="is-64x64 is-square"> <!--velicina slike 64x64 i kvadrat-->
+                            <img src="slike/Aslan.jpg" alt="Character 1">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drugi karakter -->
+            <div class="column is-4">
+                <div class="card character-card" data-target="character-modal-2">
+                    <div class="card-image">
+                        <figure class="is-64x64 is-square">
+                            <img src="slike/judy.jpg" alt="Character 2">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treci karakter -->
+            <div class="column is-4">
+                <div class="card character-card" data-target="character-modal-3">
+                    <div class="card-image">
+                        <figure class="is-64x64 is-square">
+                            <img src="slike/Susan.jpg" alt="Character 3">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Cetvrti karakter -->
+
+            <div class="column is-4">
+                <div class="card character-card" data-target="character-modal-4">
+                    <div class="card-image">
+                        <figure class="is-64x64 is-square">
+                            <img src="slike/Prince.jpg" alt="Character 4">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Peti karakter -->
+
+            <div class="column is-4">
+                <div class="card character-card" data-target="character-modal-5">
+                    <div class="card-image">
+                        <figure class="is-64x64 is-square">
+                            <img src="slike/Peter.jpg" alt="Character 4">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <!-- Sesti karakter -->
+
+            <div class="column is-4">
+                <div class="card character-card" data-target="character-modal-6">
+                    <div class="card-image">
+                        <figure class="is-64x64 is-square">
+                            <img src="slike/luccy.jpg" alt="Character 4">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Modali(iskačući prozori) -->
+<div class="modal" id="character-modal-1">
+    <!--klasa modala, id kao data-target-->
+    <div class="modal-content"><!--sadrzaj modala:naslov, slika, propratni tekst i zatvaranje-->
+        <p class="title">ASLAN</p>
+        <img src="slike/Aslan.jpg" alt="ASLAN">
+        <p class="is-uppercase"><br> "Things never happen the same way twice,dear one"<br><br></p>
+        <p>Aslan is a central character in C.S. Lewis's "The Chronicles of Narnia" series. 
+            He is a majestic and powerful lion who serves as the Great Lion, the true King of Narnia, 
+            and a representation of goodness and virtue. Aslan plays a crucial role in the stories, 
+            often serving as a guide, protector, and source of wisdom for the main characters. 
+            Aslan's character is rich in symbolism and serves as a key element in conveying the
+            moral and spiritual themes woven throughout "The Chronicles of Narnia" series.</p>
+            <br><br>
+        <button class="button" onclick="closeModal('character-modal-1')">Close</button>
+        <!--dugme za zatvaranje na klik na njega ili pozadinu se zatvara-->
+    </div>
+</div>
+
+<div class="modal" id="character-modal-2">
+    <div class="modal-content">
+        <p class="title">JADIS</p>
+        <img src="slike/judy.jpg" alt="JADIS">
+        <p class="is-uppercase"><br>"This is a lovely place. I'm sure if only the trees were a little thicker,
+             and the ground a little drier, that they would be very nice."
+<br><br>
+        </p>
+        <p>Jadis, the White Witch, is a complex and iconic character in "The Chronicles of Narnia" series. She is introduced in "The Magician's Nephew," which is the sixth book in the chronological order of the Narnia series but was published later.
+            She comes from the world of Charn, where she was a powerful sorceress and the last survivor of her world due to her own destructive actions.
+            Her lust for power leads her to Narnia, where she seeks to establish her rule and maintain control over the land.Aslan, the Great Lion and true ruler of Narnia, is her arch-nemesis. The conflict between Jadis and Aslan represents the battle between good and evil in the Narnian world. Aslan's sacrificial act plays a crucial role in ultimately defeating Jadis and bringing about the end of her reign.
+            In the film adaptations of C.S. Lewis's "The Chronicles of Narnia" series, the character Jadis, also known as the White Witch, is portrayed by actress Tilda Swinton. <br><br>
+            </p>
+        <button class="button" onclick="closeModal('character-modal-2')">Close</button>
+    </div>
+</div>
+
+<div class="modal" id="character-modal-3">
+    <div class="modal-content">
+        <p class="title">SUSAN</p>
+        <img src="slike/Susan.jpg" alt="SUSAN">
+        <p class="is-uppercase"><br>""Grown-ups are always thinking of uninteresting explanations. "
+<br><br>
+        </p>
+        <p>Susan Pevensie is one of the four siblings in "The Chronicles of Narnia" series by C.S. Lewis. Introduced in "The Lion, the Witch and the Wardrobe," she, along with her brothers and sister, discovers the magical land of Narnia while evacuated from London during World War II.
+
+            In Narnia, Susan becomes one of the monarchs, known as Queen Susan the Gentle. She is practical and motherly, often shouldering responsibilities among her siblings. Susan's archery skills are notable in battles and quests throughout the series.
+            
+            Initially portrayed as skeptical, Susan undergoes a journey of growth, overcoming doubts and maturing into her role as a leader in Narnia. However, in "The Last Battle," the final book, it is revealed that Susan is absent during the events leading to Narnia's end. She has lost her belief in Narnia and is no longer considered a friend of Aslan.
+            
+            Susan's character is significant in exploring themes of faith, maturity, and the consequences of losing faith in Narnia. In film adaptations, actress Anna Popplewell portrays Susan in "The Lion, the Witch and the Wardrobe" and "Prince Caspian."
+            
+            </p>
+            <br><br>
+        <button class="button" onclick="closeModal('character-modal-3')">Close</button>
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="character-modal-4">
+    <div class="modal-content">
+        <p class="title">PRINCE CASPIAN</p>
+        <img src="slike/Prince.jpg" alt="PRINCE">
+        <p class="is-uppercase"><br>"I am Prince Caspian, son of King Caspian the Ninth, and true King of Narnia."
+<br><br>
+        </p>
+        <p>
+            Prince Caspian is a central character in "The Chronicles of Narnia" series by C.S. Lewis. Introduced in the book titled "Prince Caspian," he is the rightful heir to the throne of Narnia. Caspian's father, King Caspian IX, is killed by his uncle, King Miraz, who usurps the throne.
+            
+            Growing up under the care of his tutor, Dr. Cornelius, Caspian learns about Old Narnia and the magical creatures that once inhabited the land. Upon discovering his true heritage, he becomes determined to reclaim his throne and restore Narnia to its former glory.
+            
+            Caspian allies himself with the Old Narnians, including talking animals and dwarfs, who have been oppressed under Miraz's rule. Throughout his journey, Caspian receives guidance from Aslan, the Great Lion and true ruler of Narnia.
+            
+            In a climactic battle against King Miraz, Caspian leads the forces of Old Narnia and successfully reclaims his rightful place as the King of Narnia. His character embodies themes of justice, rightful leadership, and the restoration of balance to the land.
+            In the film adaptation of "Prince Caspian," the character is portrayed by actor Ben Barnes.
+            </p>
+            <br><br>
+        <button class="button" onclick="closeModal('character-modal-4')">Close</button>
+    </div>
+</div>
+
+<div class="modal" id="character-modal-5">
+    <div class="modal-content">
+        <p class="title">PETER</p>
+        <img src="slike/Peter.jpg" alt="PETER">
+        <p class="is-uppercase"><br>""Once a king or queen of Narnia, always a king or queen of Narnia."
+
+<br><br>
+     <p>
+        Peter Pevensie is a central character in C.S. Lewis's "The Chronicles of Narnia" series. Introduced in "The Lion, the Witch and the Wardrobe," Peter is the eldest of the Pevensie siblings. He takes on a leadership role within the group and displays a strong sense of responsibility, particularly towards his younger siblings.
+
+Throughout the series, Peter exhibits qualities of bravery, loyalty, and a protective nature towards his family and the land of Narnia. As the eldest sibling, he assumes a fatherly role, ensuring the well-being and safety of his brothers and sisters.
+
+Peter's character undergoes growth and development, transforming from a skeptical older brother to a confident and capable leader. His leadership becomes crucial in times of conflict, and he is often at the forefront of battles against the forces of evil, standing as a symbol of courage and resilience.
+
+Despite his initial skepticism about the existence of Narnia, Peter embraces his role as a king and protector of the realm. He shoulders the responsibilities that come with his position, displaying honor and a commitment to justice.
+
+In the film adaptations, actor William Moseley portrays Peter Pevensie, bringing to life the character's journey from a skeptical older sibling to a noble and courageous leader in the fantastical world of Narnia.
+
+     </p>
+            <br><br>
+        <button class="button" onclick="closeModal('character-modal-5')">Close</button>
+    </div>
+</div>
+<div class="modal" id="character-modal-6">
+    <div class="modal-content">
+        <p class="title">LUCY</p>
+        <img src="slike/luccy.jpg" alt="LUCY">
+        <p class="is-uppercase"><br>"I am here, and I am always with you. Come. Look."
+<br><br>
+     <p>
+        Lucy Pevensie is a central character in C.S. Lewis's "The Chronicles of Narnia" series.
+
+        Lucy is characterized by her innocence, kindness, and unwavering belief in Narnia's magic. She is the first of the siblings to enter Narnia and encounters the faun Mr. Tumnus. Despite skepticism from her siblings, Lucy remains steadfast in her claims about Narnia.
+        
+        Her genuine and compassionate nature earns her the favor of characters like Mr. Tumnus and Aslan, the Great Lion and true ruler of Narnia. Lucy's relationship with Aslan is particularly significant, as she has a deep connection with him throughout the series.
+        
+        As the series progresses, Lucy matures and continues to play a crucial role in Narnian adventures. Her faith and courage contribute to the overall themes of faith, loyalty, and the battle between good and evil in the Narnia series.
+        
+        In film adaptations, Lucy Pevensie is portrayed by actress Georgie Henley. The character's journey and growth remain central to the narrative, making Lucy an enduring and beloved figure in the world of Narnia.
+    
+     </p>
+            <br><br>
+        <button class="button" onclick="closeModal('character-modal-6')">Close</button>
+    </div>
+</div>
+
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // otvori modal klikom na karticu
+            $('.character-card').click(function () {
+                var targetModal = $(this).data('target');
+                toggleModal(targetModal, true);
+            });
+    
+            // modal se zatvara klikom na close ili pozadinu
+            $('.modal button, .modal').click(function (event) {
+                var targetModal = $(this).closest('.modal').attr('id');
+                if (event.target === this) {
+                    toggleModal(targetModal, false);
+                }
+            });
+    
+            function toggleModal(modalId, show) {
+                $('#' + modalId).toggle(show);
+            }
+        });
+    </script>
+    
+
+</body>
+<script src="js/burgermeni.js"></script> <!--samo script js fajl ukljuci-->
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer has-background-grey-lighter" > 
+        <div class="content has-text-centered">
+    <p>
+        © NARNIA WORLD DIGITAL 2023 </p>
+        </div>
+    
+        </footer>
+      
+    
+    
+  
+</body>
+</html>
