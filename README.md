@@ -15,21 +15,21 @@ The choice of the Bulma framework stems from the need for efficient tools in web
 
 # KEY FEATURES:
 
-~Responsiveness: Pages automatically adjust to different screen sizes, ensuring an optimal user experience across all devices.
+ Responsiveness: Pages automatically adjust to different screen sizes, ensuring an optimal user experience across all devices.
 
-~Simple and intuitive navigation: A well-organized menu and logically arranged links make it easier for users to find information.
+ Simple and intuitive navigation: A well-organized menu and logically arranged links make it easier for users to find information.
 
-~Efficient search functionality: Allows users to quickly find the desired content.
+ Efficient search functionality: Allows users to quickly find the desired content.
 
-~Feedback form: Enables users to provide suggestions for website improvement.
+ Feedback form: Enables users to provide suggestions for website improvement.
 
-~Custom color palette: Combines Bulma styles with additional CSS customization to maintain a consistent visual identity.
+ Custom color palette: Combines Bulma styles with additional CSS customization to maintain a consistent visual identity.
 
 
 # TECHNOLOGIES USED:
 
-~ HTML5
+ HTML5
 
-~ CSS3 (Bulma framework + additional custom styles)
+ CSS3 (Bulma framework + additional custom styles)
 
-~JavaScript (for enhanced interactivity)
+ JavaScript (for enhanced interactivity)
