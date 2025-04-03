@@ -1,4 +1,11 @@
 
+Project: Website Inspired by "The Chronicles of Narnia" Movie Series
+
+
+
+
+
+
 PROJECT DESCRIPTION:
 
 This project explores the use of the Bulma CSS framework in creating modern and responsive web pages.
